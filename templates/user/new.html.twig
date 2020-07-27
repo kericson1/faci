@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %} {% form_theme form 'bootstrap_4_layout.html.twig' %} {% block title %}Create new user {% endblock %} {% block body %}
+<div class="container">
+    <h1>Creer un utilisateur</h1>
+    {{ form_start(form)}}
+    <div class="form-group">
+        <label for="">Pseudo</label> {{form_widget(form.pseudo, {'attr': {'placeholder': 'Nom d\'utilisateur'}})}}
+    </div>
+    {{ form_end(form)}}
+
+
+</div>{% endblock %}

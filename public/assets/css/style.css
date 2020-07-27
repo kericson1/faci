@@ -1,0 +1,25 @@
+.navbar-collapse {
+    /*border-bottom: 3px solid #0BBEAD;*/
+    box-shadow: 0px 8px 15px #0BBEAD;
+}
+
+.navbar-nav {
+    font-size: 1.5rem;
+}
+
+.navbar-nav li a:hover {
+    color: #0BBEAD !important;
+}
+
+.navbar {
+    margin: 0px;
+    padding: 0px;
+}
+
+.bg-violet {
+    background-color: rgb(207, 67, 149) !important;
+}
+
+.bg-yellow {
+    background-color: rgb(238, 223, 12) !important;
+}
