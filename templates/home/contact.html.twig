@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %} {% block body %}
+<div class="container-fluid">{{form_start(contacts)}}
+
+    <h1 class="text-center" style="color: #0BBEAD;">Contactez-nous</h1>
+    <div class="row">
+        <div class="col-md-8">
+            <h5>email:</h5>
+
+            <h5>email:</h5>
+
+            <h5>email:</h5>
+
+            <h5>email:</h5>
+        </div>
+        <div class="col-md-3 contact">
+
+            <h1>Message</h1>
+            <div class="form-group">
+                <label for="">Nom</label> {{form_widget(contacts.name, {'attr': {'placeholder': 'Nom d\'utilisateur'}})}}
+            </div>
+            <div class="form-group">
+                <label for="">Email</label> {{form_widget(contacts.email, {'attr': {'placeholder': 'Adresse email'}})}}
+            </div>
+            <div class="form-group">
+                <label for="">Sujet</label> {{form_widget(contacts.sujet, {'attr': {'placeholder': 'Sujet du message'}})}}
+            </div>
+            <div class="form-group">
+                <label for="">Message</label> {{form_widget(contacts.message, {'attr': {'placeholder': 'Votre message'}})}}
+            </div>
+            <button class="btn btn-success form-control" type="submit">Envoyer</button><br><br>
+        </div>
+    </div>
+    {{form_end(contacts)}} </div>{% endblock %}

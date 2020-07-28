@@ -4,7 +4,11 @@
 }
 
 .navbar-nav {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.navbar-nav li a {
+    color: black !important;
 }
 
 .navbar-nav li a:hover {
@@ -22,4 +26,8 @@
 
 .bg-yellow {
     background-color: rgb(238, 223, 12) !important;
+}
+
+.contact {
+    box-shadow: 0px 8px 15px #0BBEAD;
 }

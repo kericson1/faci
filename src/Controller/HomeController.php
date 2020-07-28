@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Entity\Contact;
+use App\Form\ContactType;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -28,12 +30,19 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/user", name="new_user")
+     * @Route("/propos", name="propos")
      */
-    public function user()
+    public function propos()
     {
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
-        return $this->render('user/new.html.twig', ['form'=> $form->createView(),]);
+        return $this->render('home/propos.html.twig');
+    }
+    /**
+     * @Route("/contact", name="contact")
+     */
+    public function contact()
+    {
+        $contact = new Contact();
+        $contacts = $this->createForm(ContactType::class, $contact);
+        return $this->render('home/contact.html.twig', ['contacts'=>$contacts->createView(),]);
     }
 }
