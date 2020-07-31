@@ -48,9 +48,15 @@ class Users implements UserInterface
      */
     private $articles;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Slider::class, mappedBy="user")
+     */
+    private $sliders;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->sliders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -168,6 +174,37 @@ class Users implements UserInterface
             // set the owning side to null (unless already changed)
             if ($article->getUser() === $this) {
                 $article->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Slider[]
+     */
+    public function getSliders(): Collection
+    {
+        return $this->sliders;
+    }
+
+    public function addSlider(Slider $slider): self
+    {
+        if (!$this->sliders->contains($slider)) {
+            $this->sliders[] = $slider;
+            $slider->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSlider(Slider $slider): self
+    {
+        if ($this->sliders->contains($slider)) {
+            $this->sliders->removeElement($slider);
+            // set the owning side to null (unless already changed)
+            if ($slider->getUser() === $this) {
+                $slider->setUser(null);
             }
         }
 

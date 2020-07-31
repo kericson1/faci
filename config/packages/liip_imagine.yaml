@@ -9,3 +9,10 @@ liip_imagine:
                 thumbnail:
                     size: [350,100]
                     mode: outbound
+
+        slider_home:
+            quality: 75
+            filters:
+                thumbnail:
+                    size: [560,355]
+                    mode: outbound
