@@ -2,17 +2,19 @@
 
 namespace App\Controller;
 
+use App\Entity\Articles;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Repository\ArticlesRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="app_home")
      */
     public function index()
     {
@@ -24,9 +26,11 @@ class HomeController extends AbstractController
     /**
      * @Route("/activites", name="activites")
      */
-    public function activite()
+    public function activite(ArticlesRepository $articlerepo)
     {
-        return $this->render('home/activites.html.twig');
+        return $this->render('home/activites.html.twig', [
+            'articles' => $articlerepo->findAll(),
+        ]);
     }
 
     /**
@@ -41,8 +45,8 @@ class HomeController extends AbstractController
      */
     public function contact()
     {
-        $contact = new Contact();
-        $contacts = $this->createForm(ContactType::class, $contact);
-        return $this->render('home/contact.html.twig', ['contacts'=>$contacts->createView(),]);
+        #$contact = new Contact();
+        #$contacts = $this->createForm(ContactType::class, $contact);
+        return $this->render('home/contact.html.twig');
     }
 }
